@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta
+      name="viewport"
+      content="width=device-width; initial-scale=1; shrink-to-fit=no;"
+    />
+
+    <title>Bit</title>
+    <link rel="shortcut icon" href="/favicon.png" />
+    <meta name="description" content="Bit is a grid-based, keyboard-driven pixel drawing tool. It is focused on maintaining flow as you draw and resize." />
+    <meta name="og:title" content="Bit" />
+    <meta name="og:description" content="Bit is a grid-based, keyboard-driven pixel drawing tool. It is focused on maintaining flow as you draw and resize." />
+    <meta property="og:image" content="https://bit.constraint.systems/bit.png">
+    <meta name="og:url" content="https://bit.constraint.systems" />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <link rel="stylesheet" href="font.css">
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
+  </head>
+  <body>
+    <div id="container" class="show_help">
+      <div id="work_container">
+        <div class="hspacer"></div>
+        <div style="display: flex; justify-content: space-between; padding-left: 1px; padding-right: 1px;">
+          <div>
+            <button class="mode" data-trigger="1">1 move</button>
+            <button class="mode" data-trigger="2">2 resize cursor</button>
+            <button class="mode" data-trigger="3">3 resize canvas</button>
+          </div>
+          <div>
+            <label><button>p</button> save as png</label>
+          </div>
+        </div>
+        <div class="hspacer"></div>
+        <canvas id="render"></canvas>
+        <div class="qspacer"></div>
+        <div style="display: flex; justify-content: space-between; padding-left: 1px; padding-right: 1px;">
+          <div id="rmarker"></div>
+          <div>
+            <div id="rgrid"></div>
+          </div>
+        </div>
+      </div>
+      <div id="help_container" style="margin-left: 2ch;">
+        <div class="spacer"></div>
+        <div class="spacer"></div>
+        <div>About</div>
+        <div class="hspacer"></div>
+        <div>Bit is a grid-based, keyboard-driven pixel drawing tool. It is focused on maintaing flow as you draw and resize. Its code is also a stripped-down example of how to make a canvas and grid-based drawing tool. It is inspired by the text editor Vim.</div>
+        <div class="spacer"></div>
+        <div>Controls</div>
+        <div class="mode_controls">
+          <div class="hspacer"></div>
+          <div><button>h</button><button>j</button><button>k</button><button>l</button> or <button>←</button><button>↓</button><button>↑</button><button>→</button></div>
+          <div class="qspacer"></div>
+          <div>move by cursor size</div>
+          <div class="hspacer"></div>
+          <div><button>shift</button> + <button data-shift="true">h</button><button data-shift="true">j</button><button data-shift="true">k</button><button data-shift="true">l</button> or <button data-shift="true">←</button><button data-shift="true">↓</button><button data-shift="true">↑</button><button data-shift="true">→</button></div>
+          <div class="qspacer"></div>
+          <div>move by 1</div>
+          <div class="hspacer"></div>
+          <div><button>d</button> draw</div>
+          <div class="hspacer"></div>
+          <div><button>e</button> erase</div>
+          <div class="hspacer"></div>
+          <div><button>1</button><button>2</button><button>3</button> change mode</div>
+          <div class="hspacer"></div>
+          <div><button>g</button> toggle grid</div>
+          <div class="hspacer"></div>
+          <div><button>?</button> toggle help</div>
+          <div class="hspacer"></div>
+          <div><button>z</button> undo</div>
+          <div class="hspacer"></div>
+          <div><button>shift</button> + <button data-shift="true">z</button> redo</div>
+          <div class="hspacer"></div>
+        </div>
+        <div class="mode_controls">
+          <div class="hspacer"></div>
+          <div><button>h</button><button>j</button><button>k</button><button>l</button> or <button>←</button><button>↓</button><button>↑</button><button>→</button></div>
+          <div class="qspacer"></div>
+          <div>resize cursor from bottom right</div>
+          <div class="hspacer"></div>
+          <div><button>shift</button> + <button data-shift="true">h</button><button data-shift="true">j</button><button data-shift="true">k</button><button data-shift="true">l</button> or <button data-shift="true">←</button><button data-shift="true">↓</button><button data-shift="true">↑</button><button data-shift="true">→</button></div>
+          <div class="qspacer"></div>
+          <div>resize cursor from top left</div>
+          <div class="hspacer"></div>
+          <div><button>enter</button> or <button>escape</button> finish</div>
+          <div class="hspacer"></div>
+          <div><button>1</button><button>2</button><button>3</button> change mode</div>
+          <div class="hspacer"></div>
+          <div><button>g</button> toggle grid</div>
+          <div class="hspacer"></div>
+          <div><button>?</button> toggle help</div>
+          <div class="hspacer"></div>
+        </div>
+        <div class="mode_controls">
+          <div class="hspacer"></div>
+          <div><button>h</button><button>j</button><button>k</button><button>l</button> or <button>←</button><button>↓</button><button>↑</button><button>→</button></div>
+          <div class="qspacer"></div>
+          <div>resize canvas from bottom right</div>
+          <div class="hspacer"></div>
+          <div><button>shift</button> + <button data-shift="true">h</button><button data-shift="true">j</button><button data-shift="true">k</button><button data-shift="true">l</button> or <button data-shift="true">←</button><button data-shift="true">↓</button><button data-shift="true">↑</button><button data-shift="true">→</button></div>
+          <div class="qspacer"></div>
+          <div>resize canvas from top left</div>
+          <div class="hspacer"></div>
+          <div><button>enter</button> or <button>escape</button> finish</div>
+          <div class="hspacer"></div>
+          <div><button>1</button><button>2</button><button>3</button> change mode</div>
+          <div class="hspacer"></div>
+          <div><button>g</button> toggle grid</div>
+          <div class="hspacer"></div>
+          <div><button>?</button> toggle help</div>
+          <div class="hspacer"></div>
+        </div>
+     </div>
+    </div>
+  </body>
+</html>
+
+

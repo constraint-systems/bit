@@ -1,0 +1,72 @@
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 13.333px;
+  line-height: 16px;
+  user-select: none;
+  -webkit-text-size-adjust: none;
+  background: #eee;
+  color: #222;
+}
+body {
+  padding-left: 8px;
+  padding-right: 8px;
+}
+body {
+  min-width: 30ch;
+}
+img,
+canvas {
+  display: block;
+  position: relative;
+}
+
+#container {
+  margin: 0 auto;
+  display: flex;
+}
+
+button {
+  font-family: inherit;
+  line-height: inherit;
+  color: inherit;
+  margin: 0;
+  padding: 0;
+  padding-left: 3px;
+  padding-right: 3px;
+  border: none;
+  background: transparent;
+  line-height: 14px;
+  border: solid 1px #222;
+}
+button + button {
+  margin-left: -1px;
+}
+button.active {
+  background: #222;
+  color: #eee;
+}
+.mode_controls {
+  display: none;
+}
+.mode_controls.active {
+  display: block;
+}
+
+/* Spacers */
+.spacer,
+.hspacer,
+.qspacer {
+  width: 100%;
+}
+.spacer {
+  height: 16px;
+}
+.hspacer {
+  height: 8px;
+}
+.qspacer {
+  height: 4px;
+}
