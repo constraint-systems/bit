@@ -1,7 +1,7 @@
 # Bit
 
 <img 
-  src='hhttps://raw.githubusercontent.com/constraint-systems/bit/master/bit.gif'
+  src='https://raw.githubusercontent.com/constraint-systems/bit/master/bit.gif'
   width="600"
   />
   
