@@ -22,6 +22,9 @@ canvas {
   display: block;
   position: relative;
 }
+a {
+  color: inherit;
+}
 
 #container {
   margin: 0 auto;
